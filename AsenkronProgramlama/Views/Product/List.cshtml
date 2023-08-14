@@ -1,0 +1,43 @@
+﻿@model IEnumerable<ProductVM>
+
+
+    <div class="row">
+        <div class="card col-md-8 offset-2">
+            <div class="card-header">
+                <h4>Ürün Lisetleme Paneli</h4>
+            </div>
+        </div>
+        <div class="card-body">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Statu</th>
+                        <th>Stock</th>
+                        <th>Category Name</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@item.Name</td>
+                        <td>@item.Statu</td>
+                        <td>@item.Stock</td>
+                        <td>@item.CategoryName</td>
+                        <td>
+                            <a asp-action="Edit" asp-route-id="@item.ProductID" class="btn btn-warning">Güncelle</a>
+                            <a asp-action="Delete" asp-route-id="@item.ProductID" class="btn btn-danger">Sil</a>
+
+                        </td>
+
+                    </tr>
+                    
+                }
+                </tbody>
+            </table>
+
+        </div>
+
+    </div>
